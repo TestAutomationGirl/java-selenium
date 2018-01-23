@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class basePage {
     
-    protected WebDriver driver;
+    protected static WebDriver driver;
 
     public basePage() {
     }
