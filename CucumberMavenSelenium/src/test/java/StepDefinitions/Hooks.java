@@ -11,8 +11,11 @@ public class Hooks extends BaseUtil {
 
 	@Before
 	public void testInitializer() {
+		String driverPath = System.getProperty("user.dir");
+		System.out.println(driverPath);
 		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\saduhx\\TestAutomation\\Ref\\packages\\Selenium.WebDriver.ChromeDriver.2.34.0\\driver\\win32\\chromedriver.exe");
+				driverPath + "//chromedriver.exe");
+		
 		base.setDriver(new ChromeDriver());
 		driver.manage().window().maximize();
 	}
