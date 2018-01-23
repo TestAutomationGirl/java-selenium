@@ -4,27 +4,28 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class homePage extends basePage{
-    public homePage(WebDriver driver) {
+    
+	public homePage(WebDriver driver) {
 		super();
-		this.driver = driver;
+		basePage.driver = driver;
 	}
     
     private static final By searchBox = By.id("twotabsearchtextbox");
     private static final By searchLookingGlass = By.className("nav-input");
     private static final By resultsFor = By.xpath("//a[@id='bcKwText']//span");
     
-    public void enterSearchTerms(String searchTerms)
+    public static void enterSearchTerms(String searchTerms)
     {
     	driver.findElement(searchBox).clear();
     	driver.findElement(searchBox).sendKeys(searchTerms);
     }
     
-    public void click()
+    public static void clickSearchLookingGlass()
     {
     	driver.findElement(searchLookingGlass).click();
     }
     
-    public String getText()
+    public static String getResultsText()
     {
     	return driver.findElement(resultsFor).getText();
     }
