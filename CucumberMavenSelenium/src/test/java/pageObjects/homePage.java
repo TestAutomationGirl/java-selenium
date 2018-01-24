@@ -1,6 +1,13 @@
 package pageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import java.util.concurrent.TimeUnit;
 
 import StepDefinitions.BaseUtil;
 
@@ -13,20 +20,34 @@ public class homePage extends BaseUtil {
 		this.base = base;
 	}
 
-	private static final By searchBox = By.id("twotabsearchtextbox");
-	private static final By searchLookingGlass = By.className("nav-input");
-	private static final By resultsFor = By.xpath("//a[@id='bcKwText']//span");
+	FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS)
+			.pollingEvery(2, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
+			.ignoring(StaleElementReferenceException.class);
 
-	public static void enterSearchTerms(String searchTerms) {
-		driver.findElement(searchBox).clear();
-		driver.findElement(searchBox).sendKeys(searchTerms);
+	private WebElement searchBox() {
+		return driver.findElement(By.id("twotabsearchtextbox"));
 	}
 
-	public static void clickSearchLookingGlass() {
-		driver.findElement(searchLookingGlass).click();
+	private WebElement searchLookingGlass() {
+		return driver.findElement(By.className("nav-input"));
 	}
 
-	public static String getResultsText() {
-		return driver.findElement(resultsFor).getText();
+	private WebElement resultsFor() {
+		return driver.findElement(By.xpath("//a[@id='bcKwText']//span"));
+	}
+
+	public void enterSearchTerms(String searchTerms) {
+		wait.until(ExpectedConditions.visibilityOf(searchBox()));
+		searchBox().clear();
+		searchBox().sendKeys(searchTerms);
+	}
+
+	public void clickSearchLookingGlass() {
+		wait.until(ExpectedConditions.elementToBeClickable(searchLookingGlass()));
+		searchLookingGlass().click();
+	}
+
+	public String getResultsText() {
+		return resultsFor().getText();
 	}
 }
