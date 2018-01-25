@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import java.util.concurrent.TimeUnit;
 
-import StepDefinitions.BaseUtil;
-
 public class homePage extends BaseUtil {
 
 	BaseUtil base;
@@ -35,7 +33,28 @@ public class homePage extends BaseUtil {
 	private WebElement resultsFor() {
 		return driver.findElement(By.xpath("//a[@id='bcKwText']//span"));
 	}
+	
+	private WebElement SearchDropDownMenu()
+	{
+		return driver.findElement(By.id("searchDropdownBox"));
+	}
 
+	private WebElement SearchDropDownMenuOptions(String option)
+	{
+		return driver.findElement(By.xpath("//option[contains(text(),'" + option + "')]"));
+	}
+	
+	private WebElement resultsHeader()
+	{
+		return driver.findElement(By.xpath("//span[@id='s-result-count']/span/a"));
+	}
+	
+	public void SelectSearchDropDownMenu(String option)
+	{
+		SearchDropDownMenu().click();
+		SearchDropDownMenuOptions(option).click();
+	}
+	
 	public void enterSearchTerms(String searchTerms) {
 		wait.until(ExpectedConditions.visibilityOf(searchBox()));
 		searchBox().clear();
@@ -48,6 +67,13 @@ public class homePage extends BaseUtil {
 	}
 
 	public String getResultsText() {
+		wait.until(ExpectedConditions.visibilityOf(resultsFor()));
 		return resultsFor().getText();
+	}
+	
+	public String getResultsHeaderText()
+	{
+		wait.until(ExpectedConditions.visibilityOf(resultsHeader()));
+		return resultsHeader().getText();
 	}
 }
