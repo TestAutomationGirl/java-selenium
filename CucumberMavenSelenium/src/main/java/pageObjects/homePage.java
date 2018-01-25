@@ -11,11 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class homePage extends BaseUtil {
 
-	BaseUtil base;
-
-	public homePage(BaseUtil base) {
-		super();
-		this.base = base;
+	public homePage() {
 	}
 
 	FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(30, TimeUnit.SECONDS)

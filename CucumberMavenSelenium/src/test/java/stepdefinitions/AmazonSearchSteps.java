@@ -10,17 +10,14 @@ import pageObjects.BaseUtil;
 
 public class AmazonSearchSteps extends BaseUtil {
 
-	public homePage page;
-	BaseUtil base;
+	private homePage page;
 
-	public AmazonSearchSteps(BaseUtil base) {
-		super();
-		this.base = base;
-		page = new homePage(base);
+	public AmazonSearchSteps() {
+		page = new homePage();
 	}
 
-	@Given("^the user is on amazon home page$")
-	public void the_user_is_on_amazon_home_page() {
+	@Given("^the user is on the Amazon home page$")
+	public void the_user_is_on_the_Amazon_home_page() {
 		driver.get("https://www.amazon.com/");
 	}
 
@@ -33,7 +30,7 @@ public class AmazonSearchSteps extends BaseUtil {
 	@Then("^the results are displayed for \"([^\"]*)\"$")
 	public void the_results_are_displayed_for(String resultsTerm) {
 		String results = page.getResultsText();
-		String message = "Results did not match search term";
+		String message = "Results did not match the search term";
 		assertTrue(message, results.contains(resultsTerm));
 	}
 
@@ -45,7 +42,7 @@ public class AmazonSearchSteps extends BaseUtil {
 	@Then("^the results header contains department \"([^\"]*)\"$")
 	public void the_results_header_contains_department(String resultsHeader) {
 		String results = page.getResultsHeaderText();
-		String message = "Results header did not contain selected department";
+		String message = "Results header did not contain the selected department";
 		assertTrue(message, results.contains(resultsHeader));
 	}
 }
