@@ -1,9 +1,10 @@
-package StepDefinitions;
+package stepdefinitions;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import pageObjects.BaseUtil;
 
 public class Hooks extends BaseUtil {
 
