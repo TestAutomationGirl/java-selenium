@@ -28,5 +28,6 @@ public class Hooks extends BaseUtil {
 	@After
 	public void tearDownTest() {
 		base.getDriver().close();
+		base.getDriver().quit();
 	}
 }
