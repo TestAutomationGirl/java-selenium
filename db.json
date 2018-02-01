@@ -1,0 +1,52 @@
+{
+   "A": [
+      {
+         "FIELD2": "B",
+         "FIELD3": "C",
+         "FIELD4": "D",
+         "FIELD5": "E",
+         "FIELD6": "F"
+      }
+   ],
+   "Feature": [
+      {
+         "FIELD2": "Scenario",
+         "FIELD3": "Error Output",
+         "FIELD4": "Reason for Failure",
+         "FIELD5": "Notes",
+         "FIELD6": "Bug Link (if available)"
+      }
+   ],
+   "CebEndUser": [
+      {
+         "FIELD2": "Verify the Shepard's Signals are displayed even when the Shepard report option is de-Selected",
+         "FIELD3": "Timed out after 5 seconds -> no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//a[@class='shepardssignal']\"}",
+         "FIELD4": "Bug",
+         "FIELD5": "",
+         "FIELD6": "https://tfs-glo-lexisadvance.visualstudio.com/NL/_workitems/edit/432535"
+      },
+      {
+         "FIELD2": "Verify the created report on the Ceb Delivery",
+         "FIELD3": "Assertion failed: The Delivery Download popup window is not displayed, but should be.",
+         "FIELD4": "Bug",
+         "FIELD5": "",
+         "FIELD6": "https://www4.v1host.com/LexisNexis/Task.mvc/Summary?oidToken=Task%3A69852"
+      },
+      {
+         "FIELD2": "Verify the Shepard's Signals are displayed for all citation if exists in the printer friendly view of  review citation page",
+         "FIELD3": "Timed out after 5 seconds -> no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//a[@class='shepardssignal']\"}",
+         "FIELD4": "Bug",
+         "FIELD5": "",
+         "FIELD6": "https://www4.v1host.com/LexisNexis/Task.mvc/Summary?oidToken=Task%3A71329"
+      }
+   ],
+   "BriefCheck": [
+      {
+         "FIELD2": "Verify BriefCheck Report is delivered",
+         "FIELD3": "Timed out after 60 seconds -> no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//section[@class='fit-height delivery-confirm']//p[contains(text(), 'Your delivery request is being processed.')]\"}",
+         "FIELD4": "Bug",
+         "FIELD5": "",
+         "FIELD6": "https://www4.v1host.com/LexisNexis/Task.mvc/Summary?oidToken=Task%3A69852"
+      }
+   ]
+}
